@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=4 uid="uid://dcb35jyyypes"]
+
+[ext_resource type="PackedScene" uid="uid://op2vgs332sl1" path="res://Scenes/Player.tscn" id="1_iukft"]
+[ext_resource type="Texture2D" uid="uid://cbua02d85girj" path="res://Assets/Tileset/MainGround.png" id="2_gl6un"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j5yw3"]
+texture = ExtResource("2_gl6un")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+2:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_kldst"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_j5yw3")
+
+[node name="Game" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_iukft")]
+z_index = 10
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, -8)
+zoom = Vector2(4, 4)
+
+[node name="Tilemaps" type="Node2D" parent="."]
+
+[node name="Background" type="TileMapLayer" parent="Tilemaps"]
+
+[node name="Foreground" type="TileMapLayer" parent="Tilemaps"]
+tile_map_data = PackedByteArray("AAD7/wIAAAACAAIAAAD8/wIAAAACAAIAAAD9/wIAAAACAAIAAAD+/wIAAAACAAIAAAD//wIAAAACAAIAAAAAAAIAAAACAAIAAAABAAIAAAACAAIAAAACAAIAAAACAAIAAAADAAIAAAACAAIAAAAEAAIAAAACAAIAAAAFAAIAAAADAAIAAAD8/wEAAAAHAAIAAAD9/wEAAAAIAAIAAAD+/wEAAAAIAAIAAAD//wEAAAAJAAIAAAAAAAEAAAAEAAIAAAABAAEAAAAFAAIAAAACAAEAAAAFAAIAAAADAAEAAAAGAAIAAAAEAAEAAAACAAEAAAAEAAAAAAACAAEAAAADAAAAAAAGAAEAAAACAAAAAAAFAAEAAAABAAAAAAAFAAEAAAAAAAAAAAAEAAEAAAD//wAAAAAJAAEAAAD+/wAAAAAIAAEAAAD9/wAAAAAIAAEAAAD8/wAAAAAHAAEAAAD8////AAAHAAEAAAD9////AAAIAAEAAAD+////AAAIAAEAAAD/////AAAJAAEAAAAAAP//AAAEAAEAAAABAP//AAAFAAEAAAACAP//AAAFAAEAAAADAP//AAAGAAEAAAAEAP//AAACAAEAAAD7/wEAAAACAAEAAAD7/wAAAAACAAEAAAD7////AAACAAEAAAD7//7/AAACAAEAAAAFAAEAAAADAAEAAAAFAAAAAAADAAEAAAAFAP//AAADAAEAAAAFAP7/AAADAAEAAAD8//7/AAAHAAAAAAD9//7/AAAIAAAAAAD+//7/AAAIAAAAAAD///7/AAAJAAAAAAAAAP7/AAAEAAAAAAABAP7/AAAFAAAAAAACAP7/AAAFAAAAAAADAP7/AAAGAAAAAAAEAP7/AAACAAEAAAD8//3/AAACAAAAAAD9//3/AAACAAAAAAD+//3/AAACAAAAAAD///3/AAACAAAAAAAAAP3/AAACAAAAAAACAP3/AAACAAAAAAADAP3/AAACAAAAAAAEAP3/AAACAAAAAAABAP3/AAACAAAAAAAFAP3/AAADAAAAAAD7//3/AAACAAAAAAD6/wIAAAABAAIAAAD6/wEAAAABAAEAAAD6/wAAAAABAAEAAAD6////AAABAAEAAAD6//7/AAABAAEAAAD6//3/AAABAAAAAAAHAAMAAAACAAMAAAAHAPz/AAACAAMAAAD4//z/AAACAAMAAAD4/wMAAAACAAMAAAA=")
+tile_set = SubResource("TileSet_kldst")
