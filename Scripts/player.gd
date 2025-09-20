@@ -5,6 +5,13 @@ extends CharacterBody2D
 var speed = 100.0
 var last_direction = "down"
 
+# Diccionario para mapear vectores → direcciones
+var direction_map = {
+	Vector2.LEFT: "left",
+	Vector2.RIGHT: "right",
+	Vector2.UP: "up",
+	Vector2.DOWN: "down"
+}
 
 func _physics_process(delta: float) -> void:
 	get_input()
@@ -21,26 +28,33 @@ func get_input():
 		return
 	
 	# Detectar si nos estamos moviendo en el eje horizontal o vertical
-	if abs(input_direction.x) > abs(input_direction.y):
-		# Movimiento horizontal
-		if input_direction.x > 0:
-			last_direction = "right"
-			# Cambiar la orientacion del sprite
-			animated_sprite_2d.flip_h = false
-			#print("Going Right")
-		else:
-			last_direction = "left"
-			# Cambiar la orientacion del sprite
-			animated_sprite_2d.flip_h = true
-			#print("Going Left")
+	#if abs(input_direction.x) > abs(input_direction.y):
+		## Movimiento horizontal
+		#if input_direction.x > 0:
+			#last_direction = "right"
+			## Cambiar la orientacion del sprite
+			#animated_sprite_2d.flip_h = false
+			##print("Going Right")
+		#else:
+			#last_direction = "left"
+			## Cambiar la orientacion del sprite
+			#animated_sprite_2d.flip_h = true
+			##print("Going Left")
+	#else:
+		## Movimiento vertical
+		#if input_direction.y > 0:
+			#last_direction = "down"
+			##print("Going Down")
+		#else:
+			#last_direction = "up"
+			##print("Going Up")
+			
+	# Detectar dirección dominante (x tiene prioridad si hay empate)
+	if abs(input_direction.x) >= abs(input_direction.y):
+		last_direction = direction_map[Vector2(sign(input_direction.x), 0)]
+		animated_sprite_2d.flip_h = input_direction.x < 0
 	else:
-		# Movimiento vertical
-		if input_direction.y > 0:
-			last_direction = "down"
-			#print("Going Down")
-		else:
-			last_direction = "up"
-			#print("Going Up")
+		last_direction = direction_map[Vector2(0, sign(input_direction.y))]
 	
 	update_animation("walk")
 	velocity = input_direction * speed
