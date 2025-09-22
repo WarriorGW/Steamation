@@ -13,7 +13,7 @@ var direction_map = {
 	Vector2.DOWN: "down"
 }
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	get_input()
 	move_and_slide()
 	
