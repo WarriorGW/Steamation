@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://b7rg23loapgeg"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://b7rg23loapgeg"]
 
 [ext_resource type="FontFile" uid="uid://cxie3rto6shl6" path="res://Assets/Fonts/PixelifySans-VariableFont_wght.ttf" id="1_3taad"]
 [ext_resource type="Texture2D" uid="uid://di05mvhj8d68o" path="res://Assets/UI/Inventory/Inventory.png" id="1_e7bfs"]
@@ -13,10 +13,6 @@ region_rect = Rect2(272, 64, 48, 16)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_50bnw"]
 texture = ExtResource("1_e7bfs")
-texture_margin_left = 2.0
-texture_margin_top = 2.0
-texture_margin_right = 2.0
-texture_margin_bottom = 4.0
 region_rect = Rect2(272, 48, 48, 16)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cefca"]
@@ -43,6 +39,14 @@ texture_margin_right = 2.0
 texture_margin_bottom = 4.0
 region_rect = Rect2(272, 32, 48, 16)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u7cj8"]
+texture = ExtResource("1_e7bfs")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(37, 5, 38, 38)
+
 [resource]
 Button/font_sizes/font_size = 30
 Button/fonts/font = ExtResource("1_3taad")
@@ -51,3 +55,4 @@ Button/styles/focus = SubResource("StyleBoxTexture_50bnw")
 Button/styles/hover = SubResource("StyleBoxTexture_cefca")
 Button/styles/normal = SubResource("StyleBoxTexture_3taad")
 Button/styles/pressed = SubResource("StyleBoxTexture_ed8xq")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_u7cj8")
