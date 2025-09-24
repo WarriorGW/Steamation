@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tmxllp310c4o"
-path="res://.godot/imported/selectbox_br.png-082b5be119d1d628145a1720dee772a1.ctex"
+uid="uid://crth5rchf044g"
+path="res://.godot/imported/select_dots_large.png-9a907ff8f37e9792eb39795f0e270464.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/Icons/selectbox_br.png"
-dest_files=["res://.godot/imported/selectbox_br.png-082b5be119d1d628145a1720dee772a1.ctex"]
+source_file="res://Assets/UI/Icons/Interface/select_dots_large.png"
+dest_files=["res://.godot/imported/select_dots_large.png-9a907ff8f37e9792eb39795f0e270464.ctex"]
 
 [params]
 

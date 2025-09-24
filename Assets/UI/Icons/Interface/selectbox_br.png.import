@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cb2301ip06rt3"
-path="res://.godot/imported/label_middle.png-7053af3a4a526ce83e8d387ad656d3b4.ctex"
+uid="uid://tmxllp310c4o"
+path="res://.godot/imported/selectbox_br.png-b2605c76f3397b9ff100480b8347af15.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/Icons/label_middle.png"
-dest_files=["res://.godot/imported/label_middle.png-7053af3a4a526ce83e8d387ad656d3b4.ctex"]
+source_file="res://Assets/UI/Icons/Interface/selectbox_br.png"
+dest_files=["res://.godot/imported/selectbox_br.png-b2605c76f3397b9ff100480b8347af15.ctex"]
 
 [params]
 

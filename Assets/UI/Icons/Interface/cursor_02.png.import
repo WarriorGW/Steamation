@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crth5rchf044g"
-path="res://.godot/imported/select_dots_large.png-ceeff9305c261b41f3b93eaf977bab9e.ctex"
+uid="uid://dn3wqihhhyry1"
+path="res://.godot/imported/cursor_02.png-436a659596378eb28213d73fa75fef25.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/Icons/select_dots_large.png"
-dest_files=["res://.godot/imported/select_dots_large.png-ceeff9305c261b41f3b93eaf977bab9e.ctex"]
+source_file="res://Assets/UI/Icons/Interface/cursor_02.png"
+dest_files=["res://.godot/imported/cursor_02.png-436a659596378eb28213d73fa75fef25.ctex"]
 
 [params]
 

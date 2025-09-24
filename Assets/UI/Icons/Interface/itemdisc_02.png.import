@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cylibhy1ekpp7"
-path="res://.godot/imported/arrow_up.png-786c422ed50ae73be5e0c57d849977d8.ctex"
+uid="uid://befi52xnwbkjw"
+path="res://.godot/imported/itemdisc_02.png-7c50bb301a0f5fc2865bfe39081ea23f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/Icons/arrow_up.png"
-dest_files=["res://.godot/imported/arrow_up.png-786c422ed50ae73be5e0c57d849977d8.ctex"]
+source_file="res://Assets/UI/Icons/Interface/itemdisc_02.png"
+dest_files=["res://.godot/imported/itemdisc_02.png-7c50bb301a0f5fc2865bfe39081ea23f.ctex"]
 
 [params]
 

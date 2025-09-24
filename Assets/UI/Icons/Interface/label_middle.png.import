@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuuicr20dmlub"
-path="res://.godot/imported/cursor_03.png-4a93420442694840698a91d2d6290297.ctex"
+uid="uid://cb2301ip06rt3"
+path="res://.godot/imported/label_middle.png-81d176dfe13ef2dc06b3820a4483fc14.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/Icons/cursor_03.png"
-dest_files=["res://.godot/imported/cursor_03.png-4a93420442694840698a91d2d6290297.ctex"]
+source_file="res://Assets/UI/Icons/Interface/label_middle.png"
+dest_files=["res://.godot/imported/label_middle.png-81d176dfe13ef2dc06b3820a4483fc14.ctex"]
 
 [params]
 
