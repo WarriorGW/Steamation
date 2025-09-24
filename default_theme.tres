@@ -32,6 +32,7 @@ texture_margin_bottom = 4.0
 region_rect = Rect2(272, 0, 48, 16)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ed8xq"]
+content_margin_top = 3.0
 texture = ExtResource("1_e7bfs")
 texture_margin_left = 2.0
 texture_margin_top = 2.0
@@ -48,11 +49,13 @@ texture_margin_bottom = 4.0
 region_rect = Rect2(37, 5, 38, 38)
 
 [resource]
-Button/font_sizes/font_size = 30
+Button/font_sizes/font_size = 20
 Button/fonts/font = ExtResource("1_3taad")
 Button/styles/disabled = SubResource("StyleBoxTexture_7j863")
 Button/styles/focus = SubResource("StyleBoxTexture_50bnw")
 Button/styles/hover = SubResource("StyleBoxTexture_cefca")
 Button/styles/normal = SubResource("StyleBoxTexture_3taad")
 Button/styles/pressed = SubResource("StyleBoxTexture_ed8xq")
+Label/font_sizes/font_size = 20
+Label/fonts/font = ExtResource("1_3taad")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_u7cj8")

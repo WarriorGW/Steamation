@@ -1,4 +1,19 @@
-[gd_scene format=3 uid="uid://bp2kqfg5wtgjn"]
+[gd_scene load_steps=6 format=3 uid="uid://bp2kqfg5wtgjn"]
+
+[ext_resource type="Texture2D" uid="uid://clq6kkqyny4j2" path="res://Assets/UI/Icons/ui_icons.png" id="1_j2qsc"]
+[ext_resource type="Texture2D" uid="uid://sm5l750imnl" path="res://Assets/UI/Icons/coins.png" id="2_50l2w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50l2w"]
+atlas = ExtResource("1_j2qsc")
+region = Rect2(32, 17, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2qsc"]
+atlas = ExtResource("1_j2qsc")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flcp1"]
+atlas = ExtResource("2_50l2w")
+region = Rect2(192, 0, 64, 64)
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -8,36 +23,113 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="MainMenu" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -53.5
+offset_right = 43.5
+offset_bottom = 53.5
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu"]
 layout_mode = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 30
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
-[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer"]
+[node name="GridContainer" type="GridContainer" parent="MainMenu/MarginContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="PanelContainer/MarginContainer/GridContainer"]
+[node name="Button" type="Button" parent="MainMenu/MarginContainer/GridContainer"]
 layout_mode = 2
 focus_mode = 0
 text = "Opcion 1
 "
 metadata/_edit_use_anchors_ = true
 
-[node name="Button2" type="Button" parent="PanelContainer/MarginContainer/GridContainer"]
+[node name="Button2" type="Button" parent="MainMenu/MarginContainer/GridContainer"]
 layout_mode = 2
 focus_mode = 0
 text = "Opcion 2"
 metadata/_edit_use_anchors_ = true
 
-[node name="Button3" type="Button" parent="PanelContainer/MarginContainer/GridContainer"]
+[node name="Button3" type="Button" parent="MainMenu/MarginContainer/GridContainer"]
 layout_mode = 2
 focus_mode = 0
 text = "Opcion 3"
 metadata/_edit_use_anchors_ = true
+
+[node name="RightSideMenu" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -3.0
+offset_bottom = 3.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="RightSideMenu"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="RightSideMenu/MarginContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="RightSideMenu/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+focus_mode = 0
+icon = SubResource("AtlasTexture_50l2w")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button2" type="Button" parent="RightSideMenu/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+focus_mode = 0
+icon = SubResource("AtlasTexture_j2qsc")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Stats" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -4.0
+offset_bottom = 6.0
+grow_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Stats"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Stats/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Stats/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_flcp1")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="Stats/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "200"
