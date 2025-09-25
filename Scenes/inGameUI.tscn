@@ -155,4 +155,6 @@ icon = SubResource("AtlasTexture_j2qsc")
 icon_alignment = 1
 expand_icon = true
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
 [connection signal="pressed" from="RightSidebarMenu/ToggleButton" to="RightSidebarMenu" method="_on_toggle_button_pressed"]
