@@ -1,6 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://djjntmxsrmdje"]
+[gd_scene load_steps=11 format=3 uid="uid://djjntmxsrmdje"]
 
+[ext_resource type="Script" uid="uid://dlfgut3lnl2wq" path="res://Scenes/machine.gd" id="1_7iaox"]
 [ext_resource type="Texture2D" uid="uid://c6ji1awg2ly4k" path="res://Assets/Machines/Drill.png" id="1_ovuu0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ovuu0"]
+size = Vector2(56, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7iaox"]
+size = Vector2(48, 22)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7iaox"]
 atlas = ExtResource("1_ovuu0")
@@ -50,20 +57,22 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ovuu0"]
-size = Vector2(48, 22)
-
 [node name="Machine" type="Node2D"]
+script = ExtResource("1_7iaox")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 13)
+shape = SubResource("RectangleShape2D_ovuu0")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 13)
+shape = SubResource("RectangleShape2D_7iaox")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ah1v6")
 animation = &"idle"
 autoplay = "idle"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 13)
-shape = SubResource("RectangleShape2D_ovuu0")
-
-[node name="PanelContainer" type="PanelContainer" parent="."]
-offset_right = 4.0
-offset_bottom = 6.0
