@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=4 uid="uid://dcb35jyyypes"]
+[gd_scene load_steps=17 format=4 uid="uid://dcb35jyyypes"]
 
 [ext_resource type="PackedScene" uid="uid://op2vgs332sl1" path="res://Scenes/Player.tscn" id="1_iukft"]
 [ext_resource type="Texture2D" uid="uid://cj4ej34syadoc" path="res://Assets/Tileset/BgWaterAlternative.png" id="3_b2bpf"]
 [ext_resource type="Texture2D" uid="uid://ch8bqb0odkth7" path="res://Assets/Tileset/MainGroundAlternative.png" id="3_j5yw3"]
 [ext_resource type="PackedScene" uid="uid://djjntmxsrmdje" path="res://Scenes/Machine.tscn" id="4_b2bpf"]
 [ext_resource type="PackedScene" uid="uid://bp2kqfg5wtgjn" path="res://Scenes/inGameUI.tscn" id="5_b2bpf"]
+[ext_resource type="Texture2D" uid="uid://cpqpea8knijl4" path="res://Assets/Machines/Boiler.png" id="6_7lihs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7lihs"]
 texture = ExtResource("3_b2bpf")
@@ -132,6 +133,42 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_j5yw3")
 sources/0 = SubResource("TileSetAtlasSource_b2bpf")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgofq"]
+atlas = ExtResource("6_7lihs")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2irst"]
+atlas = ExtResource("6_7lihs")
+region = Rect2(0, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bf53h"]
+atlas = ExtResource("6_7lihs")
+region = Rect2(0, 96, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71axn"]
+atlas = ExtResource("6_7lihs")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dahhg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgofq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2irst")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bf53h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71axn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
 [node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_iukft")]
@@ -153,9 +190,14 @@ tile_map_data = PackedByteArray("AAD8/wEAAQACAAEAAAD9/wEAAQACAAEAAAD+/wEAAQACAAE
 tile_set = SubResource("TileSet_kldst")
 
 [node name="Machine" parent="." instance=ExtResource("4_b2bpf")]
-position = Vector2(147, -23)
+position = Vector2(159, -21)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("5_b2bpf")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-45, -24)
+sprite_frames = SubResource("SpriteFrames_dahhg")
+frame_progress = 0.113436416
