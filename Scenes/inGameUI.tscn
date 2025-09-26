@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bp2kqfg5wtgjn"]
+[gd_scene load_steps=12 format=3 uid="uid://bp2kqfg5wtgjn"]
 
 [ext_resource type="Texture2D" uid="uid://clq6kkqyny4j2" path="res://Assets/UI/Icons/ui_icons.png" id="1_j2qsc"]
+[ext_resource type="Script" uid="uid://c5ctnbbiqyo21" path="res://Scripts/main_menu.gd" id="1_ktxmv"]
 [ext_resource type="Texture2D" uid="uid://sm5l750imnl" path="res://Assets/UI/Icons/coins.png" id="2_50l2w"]
 [ext_resource type="Script" uid="uid://m2hgfwqpb12m" path="res://Scripts/right_sidebar_menu.gd" id="2_flcp1"]
 
@@ -20,6 +21,66 @@ region = Rect2(32, 17, 16, 16)
 atlas = ExtResource("1_j2qsc")
 region = Rect2(32, 32, 16, 16)
 
+[sub_resource type="Animation" id="Animation_flcp1"]
+resource_name = "right_side_bar_spawn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightSidebarMenu/RightSideContent:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightSidebarMenu/RightSideContent/MarginContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.36666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_ktxmv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightSidebarMenu/RightSideContent:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightSidebarMenu/RightSideContent/MarginContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6j5n7"]
+_data = {
+&"RESET": SubResource("Animation_ktxmv"),
+&"right_side_bar_spawn": SubResource("Animation_flcp1")
+}
+
 [node name="UI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -29,6 +90,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MainMenu" type="PanelContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -41,6 +103,7 @@ offset_right = 43.5
 offset_bottom = 53.5
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ktxmv")
 
 [node name="MarginContainer" type="MarginContainer" parent="MainMenu"]
 layout_mode = 2
@@ -156,5 +219,8 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_6j5n7")
+}
 
 [connection signal="pressed" from="RightSidebarMenu/ToggleButton" to="RightSidebarMenu" method="_on_toggle_button_pressed"]
