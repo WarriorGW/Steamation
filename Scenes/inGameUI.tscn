@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://bp2kqfg5wtgjn"]
+[gd_scene load_steps=14 format=3 uid="uid://bp2kqfg5wtgjn"]
 
 [ext_resource type="Texture2D" uid="uid://clq6kkqyny4j2" path="res://Assets/UI/Icons/ui_icons.png" id="1_j2qsc"]
-[ext_resource type="Script" uid="uid://c5ctnbbiqyo21" path="res://Scripts/main_menu.gd" id="1_ktxmv"]
+[ext_resource type="Script" uid="uid://c5ctnbbiqyo21" path="res://Scripts/UserInterface/main_menu.gd" id="1_ktxmv"]
 [ext_resource type="Texture2D" uid="uid://sm5l750imnl" path="res://Assets/UI/Icons/coins.png" id="2_50l2w"]
-[ext_resource type="Script" uid="uid://m2hgfwqpb12m" path="res://Scripts/right_sidebar_menu.gd" id="2_flcp1"]
+[ext_resource type="Script" uid="uid://m2hgfwqpb12m" path="res://Scripts/UserInterface/right_sidebar_menu.gd" id="2_flcp1"]
+[ext_resource type="Script" uid="uid://dbaeo5nk0hgg8" path="res://Scripts/UserInterface/building_menu.gd" id="5_6j5n7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_flcp1"]
 atlas = ExtResource("2_50l2w")
@@ -93,6 +94,8 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MainMenu" type="PanelContainer" parent="."]
+process_mode = 3
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -117,20 +120,19 @@ theme_override_constants/margin_bottom = 10
 [node name="GridContainer" type="GridContainer" parent="MainMenu/MarginContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="MainMenu/MarginContainer/GridContainer"]
+[node name="ContinueBtn" type="Button" parent="MainMenu/MarginContainer/GridContainer"]
 layout_mode = 2
-text = "Opcion 1
-"
+text = "Reanudar"
 metadata/_edit_use_anchors_ = true
 
-[node name="Button2" type="Button" parent="MainMenu/MarginContainer/GridContainer"]
+[node name="SettingsBtn" type="Button" parent="MainMenu/MarginContainer/GridContainer"]
 layout_mode = 2
-text = "Opcion 2"
+text = "Configuracion"
 metadata/_edit_use_anchors_ = true
 
-[node name="Button3" type="Button" parent="MainMenu/MarginContainer/GridContainer"]
+[node name="SaveQuitBtn" type="Button" parent="MainMenu/MarginContainer/GridContainer"]
 layout_mode = 2
-text = "Opcion 3"
+text = "Guardar y salir"
 metadata/_edit_use_anchors_ = true
 
 [node name="Stats" type="PanelContainer" parent="."]
@@ -200,17 +202,19 @@ theme_override_constants/margin_bottom = 10
 [node name="GridContainer" type="GridContainer" parent="RightSidebarMenu/RightSideContent/MarginContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="RightSidebarMenu/RightSideContent/MarginContainer/GridContainer"]
+[node name="ShopBtn" type="Button" parent="RightSidebarMenu/RightSideContent/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
+tooltip_text = "Shop Menu (F)"
 focus_mode = 0
 icon = SubResource("AtlasTexture_50l2w")
 icon_alignment = 1
 expand_icon = true
 
-[node name="Button2" type="Button" parent="RightSidebarMenu/RightSideContent/MarginContainer/GridContainer"]
+[node name="BuildBtn" type="Button" parent="RightSidebarMenu/RightSideContent/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
+tooltip_text = "Building menu (H)"
 focus_mode = 0
 icon = SubResource("AtlasTexture_j2qsc")
 icon_alignment = 1
@@ -221,7 +225,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_6j5n7")
 }
 
-[node name="ShopMenu" type="PanelContainer" parent="."]
+[node name="BuildingMenu" type="PanelContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -233,37 +238,85 @@ offset_top = -6.0
 offset_right = 2.0
 grow_horizontal = 2
 grow_vertical = 0
+script = ExtResource("5_6j5n7")
 
-[node name="MarginContainer" type="MarginContainer" parent="ShopMenu"]
+[node name="MarginContainer" type="MarginContainer" parent="BuildingMenu"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ShopMenu/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="BuildingMenu/MarginContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ShopMenu/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BuildingMenu/MarginContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="ShopMenu/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="TerrainBtn" type="Button" parent="BuildingMenu/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Terrain"
 
-[node name="Button2" type="Button" parent="ShopMenu/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="MachinesBtn" type="Button" parent="BuildingMenu/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Machines"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="ShopMenu/MarginContainer/HBoxContainer"]
+[node name="DecorationsBtn" type="Button" parent="BuildingMenu/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Decoration"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BuildingMenu/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ktxmv")
 
-[node name="GridContainer" type="GridContainer" parent="ShopMenu/MarginContainer/HBoxContainer/ScrollContainer"]
+[node name="GridContainer" type="GridContainer" parent="BuildingMenu/MarginContainer/HBoxContainer/ScrollContainer"]
 layout_mode = 2
 columns = 5
 
+[node name="SettingsMenu" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -3.0
+offset_right = 2.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsMenu"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsMenu/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsMenu/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Volumen"
+
+[node name="HSlider" type="HSlider" parent="SettingsMenu/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="SettingsMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="MainMenu/MarginContainer/GridContainer/ContinueBtn" to="MainMenu" method="_on_continue_btn_pressed"]
 [connection signal="pressed" from="RightSidebarMenu/ToggleButton" to="RightSidebarMenu" method="_on_toggle_button_pressed"]
+[connection signal="pressed" from="RightSidebarMenu/RightSideContent/MarginContainer/GridContainer/BuildBtn" to="BuildingMenu" method="_on_build_btn_pressed"]
