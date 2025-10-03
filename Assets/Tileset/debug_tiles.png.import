@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bt47djqc8fovn"
-path="res://.godot/imported/pastitodemosi-acantilado.png-901fd6a8167a589a403842e3a4b1bbfb.ctex"
+uid="uid://cfaevjo70w8sa"
+path="res://.godot/imported/debug_tiles.png-5cb83ca80abc458257aa2ee218d74b1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tileset/pastitodemosi-acantilado.png"
-dest_files=["res://.godot/imported/pastitodemosi-acantilado.png-901fd6a8167a589a403842e3a4b1bbfb.ctex"]
+source_file="res://Assets/Tileset/debug_tiles.png"
+dest_files=["res://.godot/imported/debug_tiles.png-5cb83ca80abc458257aa2ee218d74b1a.ctex"]
 
 [params]
 

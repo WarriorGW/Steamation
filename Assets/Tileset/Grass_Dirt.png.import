@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfaevjo70w8sa"
-path="res://.godot/imported/pastitodemosi-uwu.png-0b0ae6d562c1ef399282873300854b2f.ctex"
+uid="uid://du7bgr0bc5clb"
+path="res://.godot/imported/Grass_Dirt.png-bb5642f25144be148c31df1b5bc77c4f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tileset/pastitodemosi-uwu.png"
-dest_files=["res://.godot/imported/pastitodemosi-uwu.png-0b0ae6d562c1ef399282873300854b2f.ctex"]
+source_file="res://Assets/Tileset/Grass_Dirt.png"
+dest_files=["res://.godot/imported/Grass_Dirt.png-bb5642f25144be148c31df1b5bc77c4f.ctex"]
 
 [params]
 

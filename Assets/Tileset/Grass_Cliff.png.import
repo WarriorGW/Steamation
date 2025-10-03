@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://du7bgr0bc5clb"
-path="res://.godot/imported/pastitodemosi.png-23061a2b64b777098e31bf99a247ec37.ctex"
+uid="uid://dhhfbvhq2n44j"
+path="res://.godot/imported/Grass_Cliff.png-6111446a1d20292bceb72437da4b706d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tileset/pastitodemosi.png"
-dest_files=["res://.godot/imported/pastitodemosi.png-23061a2b64b777098e31bf99a247ec37.ctex"]
+source_file="res://Assets/Tileset/Grass_Cliff.png"
+dest_files=["res://.godot/imported/Grass_Cliff.png-6111446a1d20292bceb72437da4b706d.ctex"]
 
 [params]
 

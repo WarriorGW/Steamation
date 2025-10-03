@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhhfbvhq2n44j"
-path="res://.godot/imported/acantilado.png-b6d1ecbd258d4d16c5f5e0eb77a450b0.ctex"
+uid="uid://ciqnwkylljigi"
+path="res://.godot/imported/Dirt.png-9b73802dab880229c854ffbcd52b0fbe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tileset/acantilado.png"
-dest_files=["res://.godot/imported/acantilado.png-b6d1ecbd258d4d16c5f5e0eb77a450b0.ctex"]
+source_file="res://Assets/Tileset/Dirt.png"
+dest_files=["res://.godot/imported/Dirt.png-9b73802dab880229c854ffbcd52b0fbe.ctex"]
 
 [params]
 
