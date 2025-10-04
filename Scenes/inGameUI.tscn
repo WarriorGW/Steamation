@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://bp2kqfg5wtgjn"]
+[gd_scene load_steps=17 format=3 uid="uid://bp2kqfg5wtgjn"]
 
 [ext_resource type="Texture2D" uid="uid://clq6kkqyny4j2" path="res://Assets/UI/Icons/ui_icons.png" id="1_j2qsc"]
 [ext_resource type="Script" uid="uid://c5ctnbbiqyo21" path="res://Scripts/UserInterface/main_menu.gd" id="1_ktxmv"]
 [ext_resource type="Texture2D" uid="uid://sm5l750imnl" path="res://Assets/UI/Icons/coins.png" id="2_50l2w"]
 [ext_resource type="Script" uid="uid://m2hgfwqpb12m" path="res://Scripts/UserInterface/right_sidebar_menu.gd" id="2_flcp1"]
+[ext_resource type="Script" uid="uid://b0yeysn5vskgf" path="res://Scripts/UserInterface/stats.gd" id="2_ylrhq"]
 [ext_resource type="Script" uid="uid://dbaeo5nk0hgg8" path="res://Scripts/UserInterface/building_menu.gd" id="5_6j5n7"]
 [ext_resource type="Script" uid="uid://jfmcm7v843o2" path="res://Scripts/UserInterface/inventory.gd" id="6_64b83"]
 
@@ -25,34 +26,6 @@ region = Rect2(32, 32, 16, 16)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ktxmv"]
 bg_color = Color(0.2, 0.18300001, 0.132, 1)
-
-[sub_resource type="Animation" id="Animation_6j5n7"]
-resource_name = "show_main_menu"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MainMenu:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.033333335),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MainMenu:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.033333335, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_64b83"]
 length = 0.001
@@ -107,6 +80,34 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6j5n7"]
+resource_name = "show_main_menu"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainMenu:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainMenu:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.033333335, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_64b83"]
@@ -176,6 +177,7 @@ anchor_right = 1.0
 offset_left = -4.0
 offset_bottom = 6.0
 grow_horizontal = 0
+script = ExtResource("2_ylrhq")
 
 [node name="MarginContainer" type="MarginContainer" parent="Stats"]
 layout_mode = 2
@@ -306,7 +308,6 @@ layout_mode = 2
 columns = 5
 
 [node name="SettingsMenu" type="PanelContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://dcb35jyyypes"]
+[gd_scene load_steps=16 format=4 uid="uid://dcb35jyyypes"]
 
 [ext_resource type="PackedScene" uid="uid://op2vgs332sl1" path="res://Scenes/Player.tscn" id="1_iukft"]
 [ext_resource type="Texture2D" uid="uid://cj4ej34syadoc" path="res://Assets/Tileset/BgWaterAlternative.png" id="3_b2bpf"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dhhfbvhq2n44j" path="res://Assets/Tileset/Grass_Cliff.png" id="5_2irst"]
 [ext_resource type="PackedScene" uid="uid://bp2kqfg5wtgjn" path="res://Scenes/inGameUI.tscn" id="5_b2bpf"]
 [ext_resource type="Material" uid="uid://cmbcfxlkxxnwq" path="res://addons/TileMapDual/ghost_material.tres" id="8_3so38"]
+[ext_resource type="PackedScene" uid="uid://bsv706fbyf0ry" path="res://Scenes/MachineDashboard.tscn" id="9_bf53h"]
 [ext_resource type="Script" uid="uid://cjk8nronimk5r" path="res://addons/TileMapDual/TileMapDual.gd" id="10_wxwew"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7lihs"]
@@ -266,3 +267,6 @@ position = Vector2(159, -21)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("5_b2bpf")]
+
+[node name="MachineDashboard" parent="CanvasLayer" instance=ExtResource("9_bf53h")]
+visible = false

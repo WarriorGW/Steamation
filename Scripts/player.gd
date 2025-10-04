@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
+var money: int = 0
+signal money_changed(new_value)
+
 var speed = 100.0
 var last_direction = "down"
 
@@ -12,6 +15,9 @@ var direction_map = {
 	Vector2.UP: "up",
 	Vector2.DOWN: "down"
 }
+
+func _ready() -> void:
+	add_to_group("player")
 
 func _physics_process(_delta: float) -> void:
 	get_input()
@@ -27,28 +33,6 @@ func get_input():
 		update_animation("idle")
 		return
 	
-	# Detectar si nos estamos moviendo en el eje horizontal o vertical
-	#if abs(input_direction.x) > abs(input_direction.y):
-		## Movimiento horizontal
-		#if input_direction.x > 0:
-			#last_direction = "right"
-			## Cambiar la orientacion del sprite
-			#animated_sprite_2d.flip_h = false
-			##print("Going Right")
-		#else:
-			#last_direction = "left"
-			## Cambiar la orientacion del sprite
-			#animated_sprite_2d.flip_h = true
-			##print("Going Left")
-	#else:
-		## Movimiento vertical
-		#if input_direction.y > 0:
-			#last_direction = "down"
-			##print("Going Down")
-		#else:
-			#last_direction = "up"
-			##print("Going Up")
-			
 	# Detectar dirección dominante (x tiene prioridad si hay empate)
 	if abs(input_direction.x) >= abs(input_direction.y):
 		last_direction = direction_map[Vector2(sign(input_direction.x), 0)]
@@ -61,3 +45,7 @@ func get_input():
 
 func update_animation(state):
 	animated_sprite_2d.play(state) # Concatenar + "_" + last_direction cuando tenga el top-down
+
+func add_money(amount: int):
+	money += amount
+	emit_signal("money_changed", money)

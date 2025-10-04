@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://djjntmxsrmdje"]
 
-[ext_resource type="Script" uid="uid://dlfgut3lnl2wq" path="res://Scripts/machine.gd" id="1_7iaox"]
+[ext_resource type="Script" uid="uid://dlfgut3lnl2wq" path="res://Scripts/Machines/Machine.gd" id="1_7iaox"]
 [ext_resource type="Texture2D" uid="uid://c6ji1awg2ly4k" path="res://Assets/Machines/Drill.png" id="1_ovuu0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7iaox"]

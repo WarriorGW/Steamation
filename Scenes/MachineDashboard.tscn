@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsv706fbyf0ry"]
+
+[ext_resource type="Script" uid="uid://c7gp8pcr6l67i" path="res://Scripts/Machines/machine_dashboard.gd" id="1_1q664"]
+[ext_resource type="Texture2D" uid="uid://clq6kkqyny4j2" path="res://Assets/UI/Icons/ui_icons.png" id="2_14gt3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gstnu"]
+atlas = ExtResource("2_14gt3")
+region = Rect2(65, 33, 14, 14)
+
+[node name="MachineDashboard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1q664")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 6.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+icon = SubResource("AtlasTexture_gstnu")
+icon_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MachineName" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
