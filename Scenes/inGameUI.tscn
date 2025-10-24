@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bp2kqfg5wtgjn"]
+[gd_scene load_steps=23 format=3 uid="uid://bp2kqfg5wtgjn"]
 
 [ext_resource type="Script" uid="uid://rcumh180tm27" path="res://Scripts/UserInterface/in_game_ui.gd" id="1_it3r0"]
 [ext_resource type="Texture2D" uid="uid://clq6kkqyny4j2" path="res://Assets/UI/Icons/ui_icons.png" id="1_j2qsc"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://jfmcm7v843o2" path="res://Scripts/UserInterface/inventory.gd" id="6_64b83"]
 [ext_resource type="Script" uid="uid://nbwsmp2geeor" path="res://Scripts/UserInterface/settings_menu.gd" id="7_fgev3"]
 [ext_resource type="Script" uid="uid://deqrgmix5gbxu" path="res://Scripts/UserInterface/fpslabel.gd" id="8_yv2n7"]
+[ext_resource type="AudioStream" uid="uid://cn2k1mlfpy04h" path="res://Assets/Audio/KirbyBackground.ogg" id="11_rxqt3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_flcp1"]
 atlas = ExtResource("2_50l2w")
@@ -468,20 +469,65 @@ horizontal_alignment = 1
 [node name="Sliders" type="VBoxContainer" parent="SettingsMenu/MarginContainer/VBoxContainer/Volume"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="SettingsMenu/MarginContainer/VBoxContainer/Volume/Sliders"]
+[node name="MasterLabel" type="Label" parent="SettingsMenu/MarginContainer/VBoxContainer/Volume/Sliders"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Master"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="SettingsMenu/MarginContainer/VBoxContainer/Volume/Sliders"]
+[node name="MasterSliderBox" type="HBoxContainer" parent="SettingsMenu/MarginContainer/VBoxContainer/Volume/Sliders"]
 layout_mode = 2
 
-[node name="HSlider" type="HSlider" parent="SettingsMenu/MarginContainer/VBoxContainer/Volume/Sliders/HBoxContainer"]
+[node name="MasterSlider" type="HSlider" parent="SettingsMenu/MarginContainer/VBoxContainer/Volume/Sliders/MasterSliderBox"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
 
-[node name="Label" type="Label" parent="SettingsMenu/MarginContainer/VBoxContainer/Volume/Sliders/HBoxContainer"]
+[node name="MasterPercentage" type="Label" parent="SettingsMenu/MarginContainer/VBoxContainer/Volume/Sliders/MasterSliderBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "100%"
+
+[node name="MusicLabel" type="Label" parent="SettingsMenu/MarginContainer/VBoxContainer/Volume/Sliders"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Music"
+
+[node name="MusicSliderBox" type="HBoxContainer" parent="SettingsMenu/MarginContainer/VBoxContainer/Volume/Sliders"]
+layout_mode = 2
+
+[node name="MusicSlider" type="HSlider" parent="SettingsMenu/MarginContainer/VBoxContainer/Volume/Sliders/MusicSliderBox"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="MusicPercentage" type="Label" parent="SettingsMenu/MarginContainer/VBoxContainer/Volume/Sliders/MusicSliderBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "100%"
+
+[node name="SFXLabel" type="Label" parent="SettingsMenu/MarginContainer/VBoxContainer/Volume/Sliders"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "SFX"
+
+[node name="SFXSliderBox" type="HBoxContainer" parent="SettingsMenu/MarginContainer/VBoxContainer/Volume/Sliders"]
+layout_mode = 2
+
+[node name="SFXSlider" type="HSlider" parent="SettingsMenu/MarginContainer/VBoxContainer/Volume/Sliders/SFXSliderBox"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="SFXPercentage" type="Label" parent="SettingsMenu/MarginContainer/VBoxContainer/Volume/Sliders/SFXSliderBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "100%"
@@ -489,12 +535,6 @@ text = "100%"
 [node name="ExitSettingsMenuBtn" type="Button" parent="SettingsMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Close"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-process_mode = 3
-libraries = {
-&"": SubResource("AnimationLibrary_64b83")
-}
 
 [node name="Inventory" type="PanelContainer" parent="."]
 visible = false
@@ -510,6 +550,18 @@ offset_bottom = 21.0
 theme_override_font_sizes/font_size = 10
 text = "0 FPS"
 script = ExtResource("8_yv2n7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 3
+libraries = {
+&"": SubResource("AnimationLibrary_64b83")
+}
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("11_rxqt3")
+autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="MainMenu/MarginContainer/GridContainer/ContinueBtn" to="MainMenu" method="_on_continue_btn_pressed"]
 [connection signal="pressed" from="MainMenu/MarginContainer/GridContainer/SettingsBtn" to="MainMenu" method="_on_settings_btn_pressed"]
