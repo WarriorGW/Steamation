@@ -1,5 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://bp2kqfg5wtgjn"]
+[gd_scene load_steps=22 format=3 uid="uid://bp2kqfg5wtgjn"]
 
+[ext_resource type="Script" uid="uid://rcumh180tm27" path="res://Scripts/UserInterface/in_game_ui.gd" id="1_it3r0"]
 [ext_resource type="Texture2D" uid="uid://clq6kkqyny4j2" path="res://Assets/UI/Icons/ui_icons.png" id="1_j2qsc"]
 [ext_resource type="Script" uid="uid://c5ctnbbiqyo21" path="res://Scripts/UserInterface/main_menu.gd" id="1_ktxmv"]
 [ext_resource type="Texture2D" uid="uid://sm5l750imnl" path="res://Assets/UI/Icons/coins.png" id="2_50l2w"]
@@ -7,6 +8,7 @@
 [ext_resource type="Script" uid="uid://b0yeysn5vskgf" path="res://Scripts/UserInterface/stats.gd" id="2_ylrhq"]
 [ext_resource type="Script" uid="uid://dbaeo5nk0hgg8" path="res://Scripts/UserInterface/building_menu.gd" id="5_6j5n7"]
 [ext_resource type="Script" uid="uid://jfmcm7v843o2" path="res://Scripts/UserInterface/inventory.gd" id="6_64b83"]
+[ext_resource type="Script" uid="uid://nbwsmp2geeor" path="res://Scripts/UserInterface/settings_menu.gd" id="7_fgev3"]
 [ext_resource type="Script" uid="uid://deqrgmix5gbxu" path="res://Scripts/UserInterface/fpslabel.gd" id="8_yv2n7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_flcp1"]
@@ -119,6 +121,46 @@ tracks/1/keys = {
 "values": [Vector2(1, 1), Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_fgev3"]
+resource_name = "hide_settings_menu"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SettingsMenu:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SettingsMenu:pivot_offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(80, 39)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SettingsMenu:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.001358e-05, 1.001358e-05)]
+}
+
 [sub_resource type="Animation" id="Animation_6j5n7"]
 resource_name = "show_main_menu"
 length = 0.2
@@ -187,46 +229,6 @@ tracks/2/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_fgev3"]
-resource_name = "hide_settings_menu"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SettingsMenu:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SettingsMenu:pivot_offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(80, 39)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SettingsMenu:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.001358e-05, 1.001358e-05)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_64b83"]
 _data = {
 &"RESET": SubResource("Animation_64b83"),
@@ -243,6 +245,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_it3r0")
 
 [node name="MainMenu" type="PanelContainer" parent="."]
 process_mode = 3
@@ -441,6 +444,7 @@ offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(80, 39)
+script = ExtResource("7_fgev3")
 
 [node name="MarginContainer" type="MarginContainer" parent="SettingsMenu"]
 layout_mode = 2
@@ -449,35 +453,42 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Volume" type="VBoxContainer" parent="SettingsMenu/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsMenu/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="SettingsMenu/MarginContainer/Volume"]
+[node name="Volume" type="VBoxContainer" parent="SettingsMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsMenu/MarginContainer/VBoxContainer/Volume"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "Volumen"
 horizontal_alignment = 1
 
-[node name="Sliders" type="VBoxContainer" parent="SettingsMenu/MarginContainer/Volume"]
+[node name="Sliders" type="VBoxContainer" parent="SettingsMenu/MarginContainer/VBoxContainer/Volume"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="SettingsMenu/MarginContainer/Volume/Sliders"]
+[node name="Label" type="Label" parent="SettingsMenu/MarginContainer/VBoxContainer/Volume/Sliders"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Master"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="SettingsMenu/MarginContainer/Volume/Sliders"]
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsMenu/MarginContainer/VBoxContainer/Volume/Sliders"]
 layout_mode = 2
 
-[node name="HSlider" type="HSlider" parent="SettingsMenu/MarginContainer/Volume/Sliders/HBoxContainer"]
+[node name="HSlider" type="HSlider" parent="SettingsMenu/MarginContainer/VBoxContainer/Volume/Sliders/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="SettingsMenu/MarginContainer/Volume/Sliders/HBoxContainer"]
+[node name="Label" type="Label" parent="SettingsMenu/MarginContainer/VBoxContainer/Volume/Sliders/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "100%"
+
+[node name="ExitSettingsMenuBtn" type="Button" parent="SettingsMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Close"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 process_mode = 3
