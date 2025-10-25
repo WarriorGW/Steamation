@@ -22,6 +22,7 @@ window/size/viewport_height=360
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
+window/vsync/vsync_mode=0
 mouse_cursor/custom_image="uid://07ed35qlvdse"
 
 [editor_plugins]

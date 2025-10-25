@@ -1,83 +1,52 @@
-Game.tscn:
-Node2D (name: "Game", scene: "res://Scenes/Game.tscn")
-├── CharacterBody2D (name: "Player", scene: "res://Scenes/Player.tscn", script: "res://Scripts/player.gd")
-│   ├── AnimatedSprite2D
-│   ├── CollisionShape2D
-│   └── Camera2D
-├── Node2D (name: "Tilemaps")
-│   ├── TileMapLayer (name: "WaterLayer")
-│   ├── TileMapLayer (name: "Background")
-│   ├── TileMapLayer (name: "Foreground")
-│   ├── TileMapLayer (name: "Grass_Cliff", script: "res://addons/TileMapDual/TileMapDual.gd")
-│   └── TileMapLayer (name: "Grass_Cliff_Water", script: "res://addons/TileMapDual/TileMapDual.gd")
-├── Node2D (name: "TileHighlighter", scene: "res://Scenes/TileHighlighter.tscn", script: "res://Scripts/UserInterface/tile_highlighter.gd")
-│   └── ColorRect (name: "Highlight")
-├── Node2D (name: "Machine", scene: "res://Scenes/Machine.tscn", script: "res://Scripts/Machines/Machine.gd")
-│   ├── AnimatedSprite2D
-│   ├── Area2D
-│   │   └── CollisionShape2D
-│   ├── StaticBody2D
-│   │   └── CollisionShape2D
-│   ├── Control (name: "MachineInventory")
-│   │   └── PanelContainer
-│   │       └── MarginContainer
-│   ├── Button (name: "ToggleBtn")
-│   └── AnimationPlayer
-└── CanvasLayer
-	├── Control (name: "UI", scene: "res://Scenes/inGameUI.tscn", script: "res://Scripts/UserInterface/in_game_ui.gd")
-	│   ├── PanelContainer (name: "MainMenu", script: "res://Scripts/UserInterface/main_menu.gd")
-	│   │   └── MarginContainer
-	│   │       └── GridContainer
-	│   │           ├── Button (name: "ContinueBtn")
-	│   │           ├── Button (name: "SettingsBtn")
-	│   │           └── Button (name: "SaveQuitBtn")
-	│   ├── PanelContainer (name: "Stats", script: "res://Scripts/UserInterface/stats.gd")
-	│   │   └── MarginContainer
-	│   │       └── HBoxContainer
-	│   │           ├── TextureRect
-	│   │           └── Label
-	│   ├── HBoxContainer (name: "RightSidebarMenu", script: "res://Scripts/UserInterface/right_sidebar_menu.gd")
-	│   │   ├── Button (name: "ToggleButton")
-	│   │   └── PanelContainer (name: "RightSideContent")
-	│   │       └── MarginContainer
-	│   │           └── GridContainer
-	│   │               ├── Button (name: "ShopBtn")
-	│   │               └── Button (name: "BuildBtn")
-	│   ├── PanelContainer (name: "BuildingMenu", script: "res://Scripts/UserInterface/building_menu.gd")
-	│   │   └── MarginContainer
-	│   │       └── HBoxContainer
-	│   │           ├── VBoxContainer
-	│   │           │   ├── Button (name: "TerrainBtn")
-	│   │           │   ├── Button (name: "MachinesBtn")
-	│   │           │   └── Button (name: "DecorationsBtn")
-	│   │           └── ScrollContainer
-	│   │               └── GridContainer
-	│   ├── PanelContainer (name: "SettingsMenu", script: "res://Scripts/UserInterface/settings_menu.gd")
-	│   │   └── MarginContainer
-	│   │       └── VBoxContainer
-	│   │           ├── VBoxContainer (name: "Volume")
-	│   │           │   ├── Label
-	│   │           │   └── VBoxContainer (name: "Sliders")
-	│   │           │       ├── Label (name: "MasterLabel")
-	│   │           │       ├── HBoxContainer (name: "MasterSliderBox")
-	│   │           │       │   ├── HSlider (name: "MasterSlider")
-	│   │           │       │   └── Label (name: "MasterPercentage")
-	│   │           │       ├── Label (name: "MusicLabel")
-	│   │           │       ├── HBoxContainer (name: "MusicSliderBox")
-	│   │           │       │   ├── HSlider (name: "MusicSlider")
-	│   │           │       │   └── Label (name: "MusicPercentage")
-	│   │           │       ├── Label (name: "SFXLabel")
-	│   │           │       └── HBoxContainer (name: "SFXSliderBox")
-	│   │           │           ├── HSlider (name: "SFXSlider")
-	│   │           │           └── Label (name: "SFXPercentage")
-	│   │           └── Button (name: "ExitSettingsMenuBtn")
-	│   ├── PanelContainer (name: "Inventory", script: "res://Scripts/UserInterface/inventory.gd")
-	│   ├── Label (name: "FPSCounter", script: "res://Scripts/UserInterface/fpslabel.gd")
-	│   ├── AnimationPlayer
-	│   └── AudioStreamPlayer2D (name: "MusicPlayer")
-	└── Control (name: "MachineDashboard", scene: "res://Scenes/MachineDashboard.tscn", script: "res://Scripts/Machines/machine_dashboard.gd")
-		└── PanelContainer
-			└── VBoxContainer
-				├── Button (name: "CloseButton")
-				└── MarginContainer
-					└── Label (name: "MachineName")
+inGameUI.tscn:
+Control (name: "UI", scene: "res://Scenes/inGameUI.tscn", script: "res://Scripts/UserInterface/in_game_ui.gd")
+├── PanelContainer (name: "MainMenu", script: "res://Scripts/UserInterface/main_menu.gd")
+│   └── MarginContainer
+│       └── GridContainer
+│           ├── Button (name: "ContinueBtn")
+│           ├── Button (name: "SettingsBtn")
+│           └── Button (name: "SaveQuitBtn")
+├── PanelContainer (name: "Stats", script: "res://Scripts/UserInterface/stats.gd")
+│   └── MarginContainer
+│       └── HBoxContainer
+│           ├── TextureRect
+│           └── Label
+├── HBoxContainer (name: "RightSidebarMenu", script: "res://Scripts/UserInterface/right_sidebar_menu.gd")
+│   ├── Button (name: "ToggleButton")
+│   └── PanelContainer (name: "RightSideContent")
+│       └── MarginContainer
+│           └── GridContainer
+│               ├── Button (name: "ShopBtn")
+│               └── Button (name: "BuildBtn")
+├── PanelContainer (name: "BuildingMenu", script: "res://Scripts/UserInterface/building_menu.gd")
+│   └── MarginContainer
+│       └── HBoxContainer
+│           ├── VBoxContainer
+│           │   ├── Button (name: "TerrainBtn")
+│           │   ├── Button (name: "MachinesBtn")
+│           │   └── Button (name: "DecorationsBtn")
+│           └── ScrollContainer
+│               └── GridContainer
+├── PanelContainer (name: "SettingsMenu", script: "res://Scripts/UserInterface/settings_menu.gd")
+│   └── MarginContainer
+│       └── VBoxContainer
+│           ├── VBoxContainer (name: "Volume")
+│           │   ├── Label
+│           │   └── VBoxContainer (name: "Sliders")
+│           │       ├── Label (name: "MasterLabel")
+│           │       ├── HBoxContainer (name: "MasterSliderBox")
+│           │       │   ├── HSlider (name: "MasterSlider")
+│           │       │   └── Label (name: "MasterPercentage")
+│           │       ├── Label (name: "MusicLabel")
+│           │       ├── HBoxContainer (name: "MusicSliderBox")
+│           │       │   ├── HSlider (name: "MusicSlider")
+│           │       │   └── Label (name: "MusicPercentage")
+│           │       ├── Label (name: "SFXLabel")
+│           │       └── HBoxContainer (name: "SFXSliderBox")
+│           │           ├── HSlider (name: "SFXSlider")
+│           │           └── Label (name: "SFXPercentage")
+│           └── Button (name: "ExitSettingsMenuBtn")
+├── PanelContainer (name: "Inventory", script: "res://Scripts/UserInterface/inventory.gd")
+├── Label (name: "FPSCounter", script: "res://Scripts/UserInterface/fpslabel.gd")
+├── AnimationPlayer
+└── AudioStreamPlayer2D (name: "MusicPlayer")
