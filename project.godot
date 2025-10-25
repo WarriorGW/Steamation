@@ -26,7 +26,7 @@ mouse_cursor/custom_image="uid://07ed35qlvdse"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/TileMapDual/plugin.cfg")
+enabled=PackedStringArray("res://addons/TileMapDual/plugin.cfg", "res://addons/scene_tree_as_text/plugin.cfg")
 
 [gui]
 

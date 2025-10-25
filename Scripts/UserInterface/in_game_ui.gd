@@ -10,7 +10,7 @@ extends Control
 @onready var settings_btn: Button = $MainMenu/MarginContainer/GridContainer/SettingsBtn
 @onready var save_quit_btn: Button = $MainMenu/MarginContainer/GridContainer/SaveQuitBtn
 @onready var exit_settings_menu_btn: Button = $SettingsMenu/MarginContainer/VBoxContainer/ExitSettingsMenuBtn
-#@onready var build_btn: Button = $BuildingMenu/MarginContainer/VBoxContainer/BuildBtn
+@onready var build_btn: Button = $RightSidebarMenu/RightSideContent/MarginContainer/GridContainer/BuildBtn
 
 # --- Animaciones ---
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -24,7 +24,7 @@ func _ready() -> void:
 	settings_btn.pressed.connect(_on_settings_btn_pressed)
 	continue_btn.pressed.connect(_on_continue_btn_pressed)
 	save_quit_btn.pressed.connect(_on_save_quit_btn_pressed)
-	#build_btn.pressed.connect(_on_build_btn_pressed)
+	build_btn.pressed.connect(_on_build_btn_pressed)
 
 	# Ocultar todo al inicio
 	main_menu.visible = false

@@ -567,4 +567,3 @@ bus = &"Music"
 [connection signal="pressed" from="MainMenu/MarginContainer/GridContainer/SettingsBtn" to="MainMenu" method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="MainMenu/MarginContainer/GridContainer/SaveQuitBtn" to="MainMenu" method="_on_save_quit_btn_pressed"]
 [connection signal="pressed" from="RightSidebarMenu/ToggleButton" to="RightSidebarMenu" method="_on_toggle_button_pressed"]
-[connection signal="pressed" from="RightSidebarMenu/RightSideContent/MarginContainer/GridContainer/BuildBtn" to="BuildingMenu" method="_on_build_btn_pressed"]
