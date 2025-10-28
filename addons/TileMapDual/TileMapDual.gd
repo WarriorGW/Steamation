@@ -149,9 +149,16 @@ func draw_cell(cell: Vector2i, terrain: int = 1) -> void:
 		erase_cell(cell)
 		changed.emit()
 		return
-	var tile_to_use: Dictionary = terrains[terrain]
-	var sid: int = tile_to_use.sid
-	var tile: Vector2i = tile_to_use.tile
+	var tile_list = terrains[terrain]
+	#var tile_to_use: Dictionary = terrains[terrain]
+	if tile_list.size() == 0:
+		erase_cell(cell)
+		changed.emit()
+		return
+	# Tomamos el primer tile del array (puedes cambiarlo por random según 'prob' si quieres)
+	var tile_to_use: Dictionary = tile_list[0]
+	var sid: int = tile_to_use["sid"]
+	var tile: Vector2i = tile_to_use["tile"]
 	set_cell(cell, sid, tile)
 	changed.emit()
 
