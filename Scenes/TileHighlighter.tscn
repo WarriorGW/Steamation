@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://basc6pw3a3xco"]
+[gd_scene load_steps=3 format=3 uid="uid://basc6pw3a3xco"]
 
 [ext_resource type="Script" uid="uid://75gadcf0cur2" path="res://Scripts/UserInterface/tile_highlighter.gd" id="1_hcfxo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hcfxo"]
 
 [node name="TileHighlighter" type="Node2D"]
 script = ExtResource("1_hcfxo")
@@ -9,3 +11,7 @@ script = ExtResource("1_hcfxo")
 offset_right = 16.0
 offset_bottom = 16.0
 color = Color(1, 1, 1, 0.3372549)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_hcfxo")

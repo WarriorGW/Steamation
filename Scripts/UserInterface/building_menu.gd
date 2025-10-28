@@ -1,23 +1,22 @@
 extends PanelContainer
 
-@onready var build_grass_cliff_water: TileMapDual = $"../../../Tilemaps/Grass_Cliff_Water"
 @onready var terrain_btn: Button = $MarginContainer/HBoxContainer/VBoxContainer/TerrainBtn
-@onready var tilemap: TileMapLayer = $"../../../Tilemaps/WaterLayer"
+@onready var tilemaps: Node2D = $"../../../Tilemaps"
 
 var build_mode := true
 var left_pressed := false
 var right_pressed := false
+var selected_terrain := 1 # 1 = Grass, 2 = Dirt, 0 = background/none
 
 func _ready() -> void:
 	# Conectar el botón para alternar el modo build
 	terrain_btn.pressed.connect(_on_terrain_btn_pressed)
-	print(build_grass_cliff_water._display.terrain.terrains)
 
 func _process(_delta: float) -> void:
 	if not build_mode:
 		return
 	
-	var cell = build_grass_cliff_water.local_to_map(tilemap.get_local_mouse_position())
+	var cell = tilemaps.grass_cliff_water.local_to_map(tilemaps.grass_cliff_water.get_local_mouse_position())
 	
 	if left_pressed:
 		_place_tile(cell)
@@ -26,14 +25,15 @@ func _process(_delta: float) -> void:
 
 func _on_terrain_btn_pressed() -> void:
 	build_mode = !build_mode
-	print("Build mode:", build_mode)
+	#print("Build mode:", build_mode)
 
 func _input(event: InputEvent) -> void:
 	if not build_mode:
 		return
 
 	if event is InputEventMouseButton:
-		var cell = build_grass_cliff_water.local_to_map(tilemap.get_local_mouse_position())
+		var cell = tilemaps.grass_cliff_water.local_to_map(tilemaps.grass_cliff_water.get_local_mouse_position())
+
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			left_pressed = event.pressed
 			if left_pressed:
@@ -44,13 +44,17 @@ func _input(event: InputEvent) -> void:
 				_remove_tile(cell)
 
 func _place_tile(cell: Vector2i) -> void:
-	var terrain_data = build_grass_cliff_water._display.terrain.terrains[1]
-	print("+ Colocando tile en celda:", cell)
-	if terrain_data.size() > 0:
-		var tile_info: Dictionary = terrain_data[0]
-		build_grass_cliff_water.set_cell(cell, tile_info.sid, tile_info.tile)
-		build_grass_cliff_water.changed.emit()
+	if tilemaps != null:
+		tilemaps.place_tile(cell, tilemaps.grass_cliff_water, selected_terrain)
 
 func _remove_tile(cell: Vector2i) -> void:
-	print("- Borrando tile en celda:", cell)
-	build_grass_cliff_water.draw_cell(cell, -1)
+	if tilemaps != null:
+		tilemaps.remove_tile(cell, tilemaps.grass_cliff_water)
+
+#func _unhandled_input(event: InputEvent) -> void:
+	#if event.is_action_pressed("quick_action_1"):
+		#selected_terrain = 1
+	#elif event.is_action_pressed("quick_action_2"):
+		#selected_terrain = 2
+	#elif event.is_action_pressed("quick_action_0"):
+		#selected_terrain = 0
