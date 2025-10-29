@@ -2,9 +2,6 @@ extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
-var money: int = 0
-signal money_changed(new_value)
-
 var speed = 100.0
 var last_direction = "down"
 
@@ -45,7 +42,3 @@ func get_input():
 
 func update_animation(state):
 	animated_sprite_2d.play(state) # Concatenar + "_" + last_direction cuando tenga el top-down
-
-func add_money(amount: int):
-	money += amount
-	emit_signal("money_changed", money)

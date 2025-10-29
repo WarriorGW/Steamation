@@ -70,9 +70,7 @@ func _on_body_exited(body):
 
 func toggle_machine_inventory():
 	print("Inventario de maquina")
-	var player = get_tree().get_first_node_in_group("player")
-	if player:
-		player.add_money(50)  # Le das 50 de dinero al jugador
+	PlayerData.add_money(50)  # Le das 50 de dinero al jugador
 	if ui_inventory.visible:
 		ui_inventory.close()
 	else:

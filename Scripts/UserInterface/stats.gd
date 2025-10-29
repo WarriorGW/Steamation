@@ -4,10 +4,11 @@ extends PanelContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var player = get_tree().get_first_node_in_group("player")
-	if player:
-		player.connect("money_changed", Callable(self, "_on_money_changed"))
-		_on_money_changed(player.money)
+	_on_money_changed(PlayerData.money)
+	
+	# Conectar al autoload PlayerData
+	if not PlayerData.money_changed.is_connected(_on_money_changed):
+		PlayerData.money_changed.connect(_on_money_changed)
 
 func _on_money_changed(new_value):
 	money_label.text = str(new_value)
