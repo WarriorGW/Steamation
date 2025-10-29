@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bp2kqfg5wtgjn"]
+[gd_scene load_steps=24 format=3 uid="uid://bp2kqfg5wtgjn"]
 
 [ext_resource type="Script" uid="uid://rcumh180tm27" path="res://Scripts/UserInterface/in_game_ui.gd" id="1_it3r0"]
 [ext_resource type="Texture2D" uid="uid://clq6kkqyny4j2" path="res://Assets/UI/Icons/ui_icons.png" id="1_j2qsc"]
@@ -26,7 +26,11 @@ region = Rect2(32, 17, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j2qsc"]
 atlas = ExtResource("1_j2qsc")
-region = Rect2(32, 32, 16, 16)
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxqt3"]
+atlas = ExtResource("1_j2qsc")
+region = Rect2(48, 48, 16, 16)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ktxmv"]
 bg_color = Color(0.2, 0.18300001, 0.132, 1)
@@ -378,6 +382,12 @@ icon = SubResource("AtlasTexture_j2qsc")
 icon_alignment = 1
 expand_icon = true
 
+[node name="TechBtn" type="Button" parent="RightSidebarMenu/RightSideContent/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+icon = SubResource("AtlasTexture_rxqt3")
+icon_alignment = 1
+
 [node name="BuildingMenu" type="PanelContainer" parent="."]
 visible = false
 layout_mode = 1
@@ -535,6 +545,102 @@ text = "100%"
 [node name="ExitSettingsMenuBtn" type="Button" parent="SettingsMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Close"
+
+[node name="TechTreeMenu" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -3.0
+offset_right = 2.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TechTreeMenu"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TechTreeMenu/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TechTreeMenu/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="TechTreeMenu/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Level 1"
+
+[node name="Button2" type="Button" parent="TechTreeMenu/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Level 2"
+
+[node name="Button3" type="Button" parent="TechTreeMenu/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Level 3"
+
+[node name="Button4" type="Button" parent="TechTreeMenu/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Level 4"
+
+[node name="Button5" type="Button" parent="TechTreeMenu/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Level 5"
+
+[node name="ColorRect" type="ColorRect" parent="TechTreeMenu/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+color = Color(0.2, 0.18431373, 0.13333334, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TechTreeMenu/MarginContainer/HBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 8
+text = "Example Text
+uwu"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TechTreeMenu/MarginContainer/HBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -21.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="TechTreeMenu/MarginContainer/HBoxContainer/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "Cost: $500"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TechTreeMenu/MarginContainer/HBoxContainer/ColorRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="TechTreeMenu/MarginContainer/HBoxContainer/ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Level Up"
 
 [node name="Inventory" type="PanelContainer" parent="."]
 visible = false
