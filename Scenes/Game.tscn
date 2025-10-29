@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://dcb35jyyypes"]
+[gd_scene load_steps=21 format=4 uid="uid://dcb35jyyypes"]
 
 [ext_resource type="PackedScene" uid="uid://op2vgs332sl1" path="res://Scenes/Player.tscn" id="1_iukft"]
 [ext_resource type="Script" uid="uid://dgvbq33xvu4jj" path="res://Scripts/game.gd" id="1_wxwew"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://basc6pw3a3xco" path="res://Scenes/TileHighlighter.tscn" id="8_dahhg"]
 [ext_resource type="Texture2D" uid="uid://jxl166i2c5jy" path="res://Assets/Tileset/Dirt_Grass.png" id="9_3cx6b"]
 [ext_resource type="PackedScene" uid="uid://bsv706fbyf0ry" path="res://Scenes/MachineDashboard.tscn" id="9_bf53h"]
+[ext_resource type="Script" uid="uid://f0rkls5uxh4k" path="res://Scripts/build_controller.gd" id="9_wxwew"]
 [ext_resource type="Script" uid="uid://cjk8nronimk5r" path="res://addons/TileMapDual/TileMapDual.gd" id="10_wxwew"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3cx6b"]
@@ -278,6 +279,9 @@ tile_set = SubResource("TileSet_alh3a")
 script = ExtResource("10_wxwew")
 godot_4_3_compatibility = false
 metadata/_custom_type_script = "uid://cjk8nronimk5r"
+
+[node name="BuildController" type="Node2D" parent="."]
+script = ExtResource("9_wxwew")
 
 [node name="TileHighlighter" parent="." instance=ExtResource("8_dahhg")]
 

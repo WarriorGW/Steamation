@@ -34,10 +34,11 @@ func remove_tile(cell: Vector2i, layer: TileMapDual) -> void:
 	if not is_instance_valid(layer) or layer._display == null or layer._display.terrain.terrains == null:
 		print("ERROR: TileMapDual _display o terrains no está inicializado")
 		return
-	#print("Removing: ", cell, " ", layer)
 	layer.draw_cell(cell, -1) # -1 = borrar completamente
 	update_water_at(cell)
-	#emit_signal("tile_changed", cell, layer)
+	if layer == grass_cliff_water:
+		_remove_floating_dirt(cell)
+	emit_signal("tile_changed", cell, layer)
 
 func fill_water():
 	@warning_ignore("integer_division")
@@ -62,20 +63,19 @@ func update_water_at(cell: Vector2i) -> void:
 		grass_cliff_water.get_cell_source_id(cell) != -1 or
 		dirt_grass.get_cell_source_id(cell) != -1
 	)
-	
-	# DEBUG: Ver qué está pasando
-	#print("Cell: ", cell, " | Has ground: ", has_ground)
-	
+
 	if has_ground:
 		water_layer.set_cell(cell, 0, WATER_WALKABLE_TILE)
-		#print("  -> Colocando agua SIN colisión (ID 1)")
 	else:
 		water_layer.set_cell(cell, 0, WATER_COLLISION_TILE)
-		#print("  -> Colocando agua CON colisión (ID 0)")
-	
-	# Verifica qué quedó colocado
-	var actual_tile = water_layer.get_cell_atlas_coords(cell)
-	#print("  -> Tile actual en water_layer: ", actual_tile)
+
+func _remove_floating_dirt(cell: Vector2i) -> void:
+	# Si la celda tiene dirt encima y ya no hay grass debajo, eliminar la dirt
+	var has_grass := grass_cliff_water.get_cell_source_id(cell) != -1
+	if not has_grass:
+		if dirt_grass.get_cell_source_id(cell) != -1:
+			print("Removing floating dirt at: ", cell)
+			dirt_grass.draw_cell(cell, -1)
 
 func is_machine_at(cell: Vector2i) -> bool:
 	#if machines_layer == null:
