@@ -24,7 +24,7 @@ func place_tile(cell: Vector2i, layer: TileMapDual, terrain: int) -> bool:
 	#if not has_enough_coins(5):
 	#	return false
 
-	grass_cliff_water.draw_cell(cell, terrain)
+	layer.draw_cell(cell, terrain)
 	update_water_at(cell)
 	emit_signal("tile_changed", cell, layer)
 	return true
@@ -74,7 +74,7 @@ func _remove_floating_dirt(cell: Vector2i) -> void:
 	var has_grass := grass_cliff_water.get_cell_source_id(cell) != -1
 	if not has_grass:
 		if dirt_grass.get_cell_source_id(cell) != -1:
-			print("Removing floating dirt at: ", cell)
+			#print("Removing floating dirt at: ", cell)
 			dirt_grass.draw_cell(cell, -1)
 
 func is_machine_at(cell: Vector2i) -> bool:
