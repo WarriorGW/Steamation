@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bp2kqfg5wtgjn"]
+[gd_scene load_steps=25 format=3 uid="uid://bp2kqfg5wtgjn"]
 
 [ext_resource type="Script" uid="uid://rcumh180tm27" path="res://Scripts/UserInterface/in_game_ui.gd" id="1_it3r0"]
 [ext_resource type="Texture2D" uid="uid://clq6kkqyny4j2" path="res://Assets/UI/Icons/ui_icons.png" id="1_j2qsc"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://jfmcm7v843o2" path="res://Scripts/UserInterface/inventory.gd" id="6_64b83"]
 [ext_resource type="Script" uid="uid://nbwsmp2geeor" path="res://Scripts/UserInterface/settings_menu.gd" id="7_fgev3"]
 [ext_resource type="Script" uid="uid://deqrgmix5gbxu" path="res://Scripts/UserInterface/fpslabel.gd" id="8_yv2n7"]
+[ext_resource type="Script" uid="uid://jnagbm1v72fs" path="res://Scripts/UserInterface/tech_tree_menu.gd" id="9_7kjo1"]
 [ext_resource type="AudioStream" uid="uid://cn2k1mlfpy04h" path="res://Assets/Audio/KirbyBackground.ogg" id="11_rxqt3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_flcp1"]
@@ -547,6 +548,7 @@ layout_mode = 2
 text = "Close"
 
 [node name="TechTreeMenu" type="PanelContainer" parent="."]
+visible = false
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 8
@@ -560,6 +562,7 @@ offset_right = 2.0
 offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("9_7kjo1")
 
 [node name="MarginContainer" type="MarginContainer" parent="TechTreeMenu"]
 layout_mode = 2
@@ -575,27 +578,27 @@ theme_override_constants/separation = 6
 [node name="VBoxContainer" type="VBoxContainer" parent="TechTreeMenu/MarginContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="TechTreeMenu/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Level1Btn" type="Button" parent="TechTreeMenu/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Level 1"
 
-[node name="Button2" type="Button" parent="TechTreeMenu/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Level2Btn" type="Button" parent="TechTreeMenu/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Level 2"
 
-[node name="Button3" type="Button" parent="TechTreeMenu/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Level3Btn" type="Button" parent="TechTreeMenu/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Level 3"
 
-[node name="Button4" type="Button" parent="TechTreeMenu/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Level4Btn" type="Button" parent="TechTreeMenu/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Level 4"
 
-[node name="Button5" type="Button" parent="TechTreeMenu/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Level5Btn" type="Button" parent="TechTreeMenu/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Level 5"
@@ -605,7 +608,7 @@ custom_minimum_size = Vector2(200, 150)
 layout_mode = 2
 color = Color(0.2, 0.18431373, 0.13333334, 1)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="TechTreeMenu/MarginContainer/HBoxContainer/ColorRect"]
+[node name="LevelDescriptionLabel" type="RichTextLabel" parent="TechTreeMenu/MarginContainer/HBoxContainer/ColorRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -628,7 +631,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 0
 
-[node name="Label" type="Label" parent="TechTreeMenu/MarginContainer/HBoxContainer/ColorRect/VBoxContainer"]
+[node name="CostLabel" type="Label" parent="TechTreeMenu/MarginContainer/HBoxContainer/ColorRect/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 9
 text = "Cost: $500"
@@ -637,7 +640,7 @@ horizontal_alignment = 1
 [node name="HBoxContainer" type="HBoxContainer" parent="TechTreeMenu/MarginContainer/HBoxContainer/ColorRect/VBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="TechTreeMenu/MarginContainer/HBoxContainer/ColorRect/VBoxContainer/HBoxContainer"]
+[node name="LevelUpBtn" type="Button" parent="TechTreeMenu/MarginContainer/HBoxContainer/ColorRect/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Level Up"
