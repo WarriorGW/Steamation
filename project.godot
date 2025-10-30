@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 PlayerData="*res://Scripts/player_data.gd"
 BuildController="*res://Scripts/build_controller.gd"
+SettingsManager="*res://Scripts/settings_manager.gd"
 
 [display]
 

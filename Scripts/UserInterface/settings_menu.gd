@@ -12,20 +12,17 @@ extends PanelContainer
 
 func _ready():
 	# Master
-	var master_index = AudioServer.get_bus_index("Master")
-	master_slider.value = db_to_linear(AudioServer.get_bus_volume_db(master_index))
+	master_slider.value = SettingsManager.master_volume
 	master_slider.connect("value_changed", Callable(self, "_on_master_slider_changed"))
 	_update_master_label(master_slider.value)
 	
 	# Music
-	var music_index = AudioServer.get_bus_index("Music")
-	music_slider.value = db_to_linear(AudioServer.get_bus_volume_db(music_index))
+	music_slider.value = SettingsManager.music_volume
 	music_slider.connect("value_changed", Callable(self, "_on_music_slider_changed"))
 	_update_music_label(music_slider.value)
 	
 	# SFX
-	var sfx_index = AudioServer.get_bus_index("SFX")
-	sfx_slider.value = db_to_linear(AudioServer.get_bus_volume_db(sfx_index))
+	sfx_slider.value = SettingsManager.sfx_volume
 	sfx_slider.connect("value_changed", Callable(self, "_on_sfx_slider_changed"))
 	_update_sfx_label(sfx_slider.value)
 
@@ -34,18 +31,24 @@ func _on_master_slider_changed(value: float) -> void:
 	var db_value = linear_to_db(value)
 	var master_index = AudioServer.get_bus_index("Master")
 	AudioServer.set_bus_volume_db(master_index, db_value)
+	SettingsManager.master_volume = value
+	SettingsManager.save_settings()
 	_update_master_label(value)
 
 func _on_music_slider_changed(value: float) -> void:
 	var db_value = linear_to_db(value)
 	var music_index = AudioServer.get_bus_index("Music")
 	AudioServer.set_bus_volume_db(music_index, db_value)
+	SettingsManager.music_volume = value
+	SettingsManager.save_settings()
 	_update_music_label(value)
 
 func _on_sfx_slider_changed(value: float) -> void:
 	var db_value = linear_to_db(value)
 	var sfx_index = AudioServer.get_bus_index("SFX")
 	AudioServer.set_bus_volume_db(sfx_index, db_value)
+	SettingsManager.sfx_volume = value
+	SettingsManager.save_settings()
 	_update_sfx_label(value)
 
 # --- Funciones para actualizar labels ---
